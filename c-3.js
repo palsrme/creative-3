@@ -1,59 +1,67 @@
-/**
- * 1. We have added a directive with the name 'avatar' and handler of
- * avatarDirective to our angular app module
- */
-angular.module('app', [])
-  .controller('mainCtrl', mainCtrl)
-  .directive('avatar', avatarDirective);
 
-function mainCtrl ($scope) {
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
 
-  $scope.users = [];
-
-  $scope.addNew = function (user) {
-    $scope.users.push({ 
-      name: user.name,
-      avatarUrl: user.url,
-      email: user.email
-    }); /* [1] */
-
-    user.name = ''; /* [2] */
-    user.url = '';
-    user.email = '';
-  };
-}
-
-/**
- * 1. this defines the api of our avatar directive. This means we are
- * expecting a user property whose value should be interpreted as an object.
- * 2. This simply means we want this directive to be used as an element.
- * 3. You can see here we've moved the html that was in our template before
- * and give it as the template for this directive. This means wherever we use
- * <avatar /> this html will also be placed there.
- * 4. Here we are implementing the feature where if there is no user avatar url,
- * we go ahead and give it a default
- */
-function avatarDirective () {
-  return {
-    scope: {
-      user: '=' /* [1] */
-    },
-    restrict: 'E', /* [2] */
-    replace: 'true',
-    template: (
-      '<div class="Avatar">' +
-        '<img ng-src="{{user.avatarUrl}}" />' +
-        '<h4>{{user.name}}</h4>' +
-        '<p>{{user.email}}</p>' +       
-'</div>'
-    ), /* [3] */
-    link: link
-  };
-
-  function link (scope) { /* [4] */
-    if (!scope.user.avatarUrl) {
-      scope.user.avatarUrl = 'https://www.drupal.org/files/issues/default-avatar.png';
+  $scope.entries = [
+    {
+      "Day" : "Feb 25",
+      "Drink" : true,
+      "Brkfst" : true,
+      "Lunch" : false,
+      "Dinner" : false,
+      "Stress" : true,
+      "Affirm" : true,
+      "Think" : false,
+      "Sleep" : true,
+      "Weigh" : true,
+      "Snacks" : false,
+      "Lemon" : true,
+      "Exercise" : true
+    },{
+      "Day" : "Feb 26",
+      "Drink" : false,
+      "Brkfst" : true,
+      "Lunch" : false,
+      "Dinner" : true,
+      "Stress" : false,
+      "Affirm" : true,
+      "Think" : false,
+      "Sleep" : false,
+      "Weigh" : true,
+      "Snacks" : true,
+      "Lemon" : true,
+      "Exercise" : true
+    },{
+      "Day" : "Feb 28",
+      "Drink" : false,
+      "Brkfst" : true,
+      "Lunch" : true,
+      "Dinner" : false,
+      "Stress" : true,
+      "Affirm" : false,
+      "Think" : false,
+      "Sleep" : true,
+      "Weigh" : true,
+      "Snacks" : true,
+      "Lemon" : true,
+      "Exercise" : false
+    },{
+      "Day" : "March 1",
+      "Drink" : true,
+      "Brkfst" : true,
+      "Lunch" : false,
+      "Dinner" : false,
+      "Stress" : false,
+      "Affirm" : false,
+      "Think" : true,
+      "Sleep" : true,
+      "Weigh" : false,
+      "Snacks" : true,
+      "Lemon" : false,
+      "Exercise" : true
     }
-  }
+  ]
+});
 
-}
+
+
