@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include our dependency on angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="c-3.js"></script>
+<link rel="stylesheet" type="text/css" href="c-3.css">
+  <meta charset="utf-8">
+  <title>Health for Life</title>
+</head>
+<body>
+  <div ng-app='app' ng-controller='mainCtrl'>
+    <h1>Healthy weight for life</h1>
+
+    <form name='userForm' ng-submit='addNew(userForm)'>
+      <input placeholder='Name' ng-model='userForm.name'/>
+      <input placeholder='Image Url' ng-model='userForm.url'/>
+    <input placeholder='Email' ng-model='userForm.email'/>     
+ <button type='submit'>Add New</button>
+    </form>
+
+    <ul class='User-list'>
+      <!--
+        ng-repeat loops through the users array bound to the scope of mainCtrl and gives
+        us access to the user object in each index so we can reference the user properties
+      -->
+      <li ng-repeat='user in users'>
+       <avatar user='user' />
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
