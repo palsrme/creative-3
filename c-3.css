@@ -9,3 +9,15 @@ h1 {color: white;
       text-align: center;
 text-transform: uppercase;
 }
+#buttons {
+    margin-left: 100px;
+
+} 
+#buttons img {
+    display: inline-block;
+    width: 220px;
+    height: 180px;
+    margin: 10px 20px;
+    padding: 5px;
+    border: 1px solid black;
+}
