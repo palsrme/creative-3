@@ -9,22 +9,3 @@ h1 {color: white;
       text-align: center;
 text-transform: uppercase;
 }
-
-.Avatar {
-  text-align: center;
-  color: yellow;
-  border-radius: 10px solid black
-}
-
-.Avatar img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-.Avatar p {
-               color: blue;
-}
-.Avatar h4 {
-  text-transform: capitalize
-  color: red;
-}
