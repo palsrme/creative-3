@@ -1,81 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-  <!-- include our dependency on angular -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-<script src="c-3.js?3"></script>
-<link rel="stylesheet" type="text/css" href="c-3.css?3">
-  <meta charset="utf-8">
-  <title>Health for Life</title>
-</head>
-<body>
-  <div ng-app='myApp' ng-controller='myCtrl'>
-    <h1>Healthy weight for life</h1>
-<div id="buttons">
+   <head>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- include our dependency on angular -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+      <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+      <script src="c-3.js?4"></script>
+      <link rel="stylesheet" type="text/css" href="c-3.css?3">
+      <meta charset="utf-8">
+      <title>Health for Life</title>
+   </head>
+   <body>
 
-<img src="greenDrink.png">
-<img src="breakfast.png">
-<img src="lunch.png">
-<img src="dinner.png">
-<br>
-<img src="weight.png">
-<img src="exercise.png">
-<img src="snacks.png">
-<img src="lemonJuice.png">
-<br>
-<img src="stressLess.png">
-<img src="affirmation.png">
-<img src="visualize.png">
-<img src="sleep.png">
-</div>
-  <h1>My Daily Health</h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-	<th></th>
-        <th colspan="4">Meals</th>
-        <th colspan="4">All Day</th>
-        <th colspan="4">Thoughts</th>
-      </tr>
-      <tr>
-	<th>Day</th>
-	<th>Green Drink</th>
-	<th>Healthy Breakfast</th>
-	<th>Balanced Lunch</th>
- 	<th>Light Dinner</th>
-	<th>Reduce Stress</th>
-	<th>Affirmations</th>
-	<th>Think Thin</th>
-	<th>Good Night Sleep</th>
-	<th>Weight</th>
-	<th>Good Snacks</th>
-	<th>Lemon Water</th>
-	<th>Exercise</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="x in entries">
-	<td>{{x.Day}}</td>
-        <td>{{x.Drink ? "X" : ""}}</td>
-	<td>{{x.Brkfst ? "X" : ""}}</td>
-        <td>{{x.Lunch ? "X" : ""}}</td>
-        <td>{{x.Dinner ? "X" : ""}}</td>
-        <td>{{x.Stress ? "X" : ""}}</td>
-        <td>{{x.Affirm ? "X" : ""}}</td>
-        <td>{{x.Think ? "X" : ""}}</td>
-        <td>{{x.Sleep ? "X" : ""}}</td>      
-        <td>{{x.Weigh ? "X" : ""}}</td>
-        <td>{{x.Snacks ? "X" : ""}}</td>
-        <td>{{x.Lemon ? "X" : ""}}</td>
-        <td>{{x.Exercise ? "X" : ""}}</td>
-
-      </tr> 
-    </tbody>
-  </table>
-
-
-  </div>
-</body>
-
+      <div ng-app='myApp' ng-controller='myCtrl'>
+         <ui-view></ui-view>
+         <script type="text/ng-template" id="/home.html">
+            <h1>Healthy weight for life</h1>
+            <div id="buttons">
+            
+            <img src="greenDrink.png" />
+            <img src="breakfast.png" />
+            <img src="lunch.png" />
+            <img src="dinner.png" />
+            <br>
+            <img src="weight.png" />
+            <img src="exercise.png" />
+            <img src="snacks.png" />
+            <img src="lemonJuice.png" />
+            <br>
+            <img src="stressLess.png" />
+            <img src="affirmation.png" />
+            <img src="visualize.png" />
+            <img src="sleep.png" />
+            <a href="#/table" class="button">View Chart</a>
+            </div>
+            
+         </script>
+         <script type="text/ng-template" id="/table.html">
+            <a class="button" role="button" href="#/home" class="pull-left">Back</a>
+            <h1>My Daily Health</h1>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+            <th></th>
+                  <th colspan="4">Meals</th>
+                  <th colspan="4">All Day</th>
+                  <th colspan="4">Thoughts</th>
+                </tr>
+                <tr>
+            <th>Day</th>
+            <th>Green Drink</th>
+            <th>Healthy Breakfast</th>
+            <th>Balanced Lunch</th>
+            <th>Light Dinner</th>
+            <th>Reduce Stress</th>
+            <th>Affirmations</th>
+            <th>Think Thin</th>
+            <th>Good Night Sleep</th>
+            <th>Weight</th>
+            <th>Good Snacks</th>
+            <th>Lemon Water</th>
+            <th>Exercise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="x in entries">
+            <td>{{x.Day}}</td>
+                  <td>{{x.Drink ? "X" : ""}}</td>
+            <td>{{x.Brkfst ? "X" : ""}}</td>
+                  <td>{{x.Lunch ? "X" : ""}}</td>
+                  <td>{{x.Dinner ? "X" : ""}}</td>
+                  <td>{{x.Stress ? "X" : ""}}</td>
+                  <td>{{x.Affirm ? "X" : ""}}</td>
+                  <td>{{x.Think ? "X" : ""}}</td>
+                  <td>{{x.Sleep ? "X" : ""}}</td>      
+                  <td>{{x.Weigh ? "X" : ""}}</td>
+                  <td>{{x.Snacks ? "X" : ""}}</td>
+                  <td>{{x.Lemon ? "X" : ""}}</td>
+                  <td>{{x.Exercise ? "X" : ""}}</td>
+            
+                </tr> 
+              </tbody>
+            </table>
+            
+         </script>
+      </div>
+   </body>
 </html>

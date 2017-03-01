@@ -1,6 +1,30 @@
 
-var app = angular.module("myApp", []);
+var app = angular.module("myApp", ['ui.router']);
+
+app.config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider) {
+      $stateProvider
+        .state('home', {
+          url: '/home',
+          templateUrl: '/home.html',
+          controller: 'myCtrl'
+        });
+      $stateProvider
+        .state('table', {
+          url: '/table',
+          templateUrl: '/table.html',
+          controller: 'tableCtrl'
+        });
+      $urlRouterProvider.otherwise('home');
+  }])
+
 app.controller("myCtrl", function($scope) {
+	
+})
+
+app.controller("tableCtrl", function($scope) {
 
   $scope.entries = [
     {
