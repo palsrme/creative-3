@@ -1,32 +1,8 @@
 
-var app = angular.module("myApp", ['ui.router']);
-
-app.config([
-    '$stateProvider',
-    '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
-      $stateProvider
-        .state('home', {
-          url: '/home',
-          templateUrl: '/home.html',
-          controller: 'myCtrl'
-        });
-      $stateProvider
-        .state('table', {
-          url: '/table',
-          templateUrl: '/table.html',
-          controller: 'tableCtrl'
-        });
-      $urlRouterProvider.otherwise('home');
-  }])
-
-app.controller("myCtrl", function($scope) {
-	
-})
-
-app.controller("tableCtrl", function($scope) {
-
-  $scope.entries = [
+angular.module("myApp", ['ui.router'])
+  .factory('entriesFactory', [function(){
+    var o = {
+      entries: [
     {
       "Day" : "Feb 25",
       "Drink" : true,
@@ -56,6 +32,20 @@ app.controller("tableCtrl", function($scope) {
       "Lemon" : true,
       "Exercise" : true
     },{
+      "Day" : "Feb 27",
+      "Drink" : false,
+      "Brkfst" : true,
+      "Lunch" : true,
+      "Dinner" : false,
+      "Stress" : true,
+      "Affirm" : false,
+      "Think" : false,
+      "Sleep" : true,
+      "Weigh" : true,
+      "Snacks" : true,
+      "Lemon" : true,
+      "Exercise" : false
+    },{
       "Day" : "Feb 28",
       "Drink" : false,
       "Brkfst" : true,
@@ -83,9 +73,40 @@ app.controller("tableCtrl", function($scope) {
       "Snacks" : true,
       "Lemon" : false,
       "Exercise" : true
-    }
-  ]
-});
+    },{
+      "Day" : "March 2"}]
+    };
+    return o;
+  }])
+  .config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider) {
+      $stateProvider
+        .state('home', {
+          url: '/home',
+          templateUrl: '/home.html',
+          controller: 'myCtrl'
+        });
+      $stateProvider
+        .state('table', {
+          url: '/table',
+          templateUrl: '/table.html',
+          controller: 'tableCtrl'
+        });
+      $urlRouterProvider.otherwise('home');
+  }])
 
+  .controller("myCtrl", function($scope,entriesFactory) {
+     $scope.entries = entriesFactory.entries;	
+     $scope.setTile = function(tileName){
+       var len = $scope.entries.length;
+       var theEntry = $scope.entries[len-1];
+       theEntry[tileName] = true;
+     };
+  })
 
+  .controller("tableCtrl", function($scope,entriesFactory) {
+     $scope.entries = entriesFactory.entries;	
+  });
 

@@ -21,6 +21,10 @@ text-transform: uppercase;
     padding: 5px;
     border: 1px solid black;
 }
+#buttons img:hover {
+   padding: 1px;
+   border: 5px dashed red;
+}
 
 td {
   text-align: center
