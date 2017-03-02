@@ -11,21 +11,24 @@ text-transform: uppercase;
 }
 #buttons {
     margin-left: 100px;
-
 } 
-#buttons img {
+#buttons figure {
     display: inline-block;
-    width: 220px;
-    height: 180px;
     margin: 10px 20px;
     padding: 5px;
     border: 1px solid black;
 }
-#buttons img:hover {
+#buttons img {
+    width: 220px;
+    height: 180px;
+}
+#buttons figure:hover {
    padding: 1px;
    border: 5px dashed red;
 }
-
+figcaption {
+    text-align: center;
+}
 td {
   text-align: center
 }

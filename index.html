@@ -5,8 +5,8 @@
       <!-- include our dependency on angular -->
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
       <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-      <script src="c-3.js?5"></script>
-      <link rel="stylesheet" type="text/css" href="c-3.css?3">
+      <script src="c-3.js?14"></script>
+      <link rel="stylesheet" type="text/css" href="c-3.css?14">
       <meta charset="utf-8">
       <title>Health for Life</title>
    </head>
@@ -18,20 +18,11 @@
             <h1>Healthy weight for life</h1>
             <div id="buttons">
             
-            <img src="greenDrink.png" ng-click="setTile('Drink')"/>
-            <img src="breakfast.png" ng-click="setTile('Brkfst')"/>
-            <img src="lunch.png" ng-click="setTile('Lunch')"/>
-            <img src="dinner.png" ng-click="setTile('Dinner')"/>
-            <br>
-            <img src="weight.png" ng-click="setTile('Weigh')"/>
-            <img src="exercise.png" ng-click="setTile('Exercise')"/>
-            <img src="snacks.png" ng-click="setTile('Snacks')"/>
-            <img src="lemonJuice.png" ng-click="setTile('Lemon')"/>
-            <br>
-            <img src="stressLess.png" ng-click="setTile('Stress')"/>
-            <img src="affirmation.png" ng-click="setTile('Affirm')"/>
-            <img src="visualize.png" ng-click="setTile('Think')"/>
-            <img src="sleep.png" ng-click="setTile('Sleep')"/>
+            <figure ng-repeat-start="i in tiles" ng-click="setTile(i)">
+              <img src="{{i.src}}">
+              <figcaption>{{i.caption}}</figcaption>
+            </figure>
+            <br ng-if="$index==3 || $index==7" ng-repeat-end>
             <a href="#/table" class="button">View Chart</a>
             </div>
             

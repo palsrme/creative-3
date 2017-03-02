@@ -99,10 +99,24 @@ angular.module("myApp", ['ui.router'])
 
   .controller("myCtrl", function($scope,entriesFactory) {
      $scope.entries = entriesFactory.entries;	
-     $scope.setTile = function(tileName){
+     $scope.tiles = [
+        { src: "greenDrink.png", tileName: "Drink", caption: "Green Drink" },
+        { src: "breakfast.png", tileName: "Brkfst", caption: "Healthy Breakfast" },
+        { src: "lunch.png", tileName: "Lunch", caption: "Balanced Lunch" },
+        { src: "dinner.png", tileName: "Dinner", caption: "Light Dinner" },
+        { src: "weight.png", tileName: "Weigh", caption: "Weight"  },
+        { src: "exercise.png", tileName: "Exercise", caption: "Exercise" },
+        { src: "snacks.png", tileName: "Snacks", caption:  "Good Snacks" },
+        { src: "lemonJuice.png", tileName: "Lemon", caption: "Lemon Water" },
+        { src: "stressLess.png", tileName: "Stress", caption: "Reduce Stress" },
+        { src: "affirmation.png", tileName: "Affirm", caption: "Affirmations" },
+        { src: "visualize.png", tileName: "Think", caption: "Think Thin" },
+        { src: "sleep.png", tileName: "Sleep", caption: "Good Night's Sleep" }
+];
+     $scope.setTile = function(tile){
        var len = $scope.entries.length;
        var theEntry = $scope.entries[len-1];
-       theEntry[tileName] = true;
+       theEntry[tile.tileName] = true;
      };
   })
 
